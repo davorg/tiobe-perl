@@ -67,7 +67,9 @@ html, body {
   transition: transform 120ms ease, background 120ms ease, color 120ms ease;
 }
 
-.tab:hover { transform: translateY(-1px); }
+.tab:hover {
+  transform: translateY(-1px);
+}
 
 .tab.is-active {
   background: rgba(255, 255, 255, 0.06);
@@ -75,7 +77,9 @@ html, body {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
-.tabpanel { padding: 0; }
+.tabpanel {
+  padding: 0;
+}
 
 .commentary {
   background: rgba(255, 255, 255, 0.04);
@@ -90,7 +94,10 @@ html, body {
   font-size: 1.1rem;
 }
 
-.commentary p { margin: 0; color: var(--muted); }
+.commentary p {
+  margin: 0;
+  color: var(--muted);
+}
 
 .card {
   background: rgba(18, 22, 34, 0.72);
@@ -155,6 +162,47 @@ html, body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tab { transition: none; }
-  .tab:hover { transform: none; }
+  .tab {
+    transition: none;
+  }
+
+  .tab:hover {
+    transform: none;
+  }
 }
+
+/* Improved link contrast on dark background */
+a {
+  color: #7dd3fc;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+a:visited {
+  color: #a5b4fc;
+}
+
+a:hover,
+ a:focus-visible {
+  color: #38bdf8;
+}
+
+/* Commentary typography spacing */
+.commentary p {
+  margin: 0 0 12px;
+}
+
+.commentary p:last-child {
+  margin-bottom: 0;
+}
+
+.commentary ul,
+.commentary ol {
+  margin: 10px 0 0 22px;
+}
+
+.commentary li + li {
+  margin-top: 6px;
+}
+
