@@ -107,6 +107,7 @@ function buildChart(rows) {
       },
       scales: {
         y: {
+          min: 1,
           reverse: true,
           title: {
             display: true,
