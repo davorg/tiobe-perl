@@ -73,16 +73,20 @@ function buildChart(rows) {
 
   const ctx = $("#tiobeChart");
   return new Chart(ctx, {
-    type: "line",
+    type: "bar",
     data: {
       labels,
       datasets: [
         {
           label: "TIOBE position (lower is better)",
           data: positions,
-          tension: 0.2,
-          pointRadius: 0,
-          borderWidth: 2
+
+          // Thin bars:
+          barThickness: 2,          // px; tweak to taste (1–4 works well)
+          maxBarThickness: 3,
+          categoryPercentage: 1.0,  // fill the category width
+          barPercentage: 1.0,       // fill within category
+          borderWidth: 0
         }
       ]
     },
@@ -94,9 +98,7 @@ function buildChart(rows) {
         intersect: false
       },
       plugins: {
-        legend: {
-          display: true
-        },
+        legend: { display: true },
         tooltip: {
           callbacks: {
             label: (ctx) => `Position: ${ctx.parsed.y}`
@@ -120,6 +122,7 @@ function buildChart(rows) {
             text: "Year-Month"
           },
           ticks: {
+            autoSkip: true,
             maxTicksLimit: 12
           }
         }
@@ -127,6 +130,7 @@ function buildChart(rows) {
     }
   });
 }
+
 
 function initTabs() {
   $("#tab-chart").addEventListener("click", () => showTab("chart"));
