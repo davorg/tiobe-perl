@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perl in the TIOBE Index</title>
+
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Perl in the TIOBE Index</h1>
+      <p class="lede">
+        A simple view of Perl’s monthly position in the TIOBE Programming Community Index.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="commentary" aria-label="Commentary">
+      <h2>Commentary</h2>
+      <p>
+        Perl has been doing well in the
+        <a href="https://www.tiobe.com/tiobe-index/">TIOBE Index</a>
+        over recent months. I've noticed a new "Perl in TIOBE" post
+        in <a href="https://reddit.com/r/perl">r/perl</a> pretty much every
+        month. That's partly because of how TIOBE report numbers (they
+        publish a new report every month, but compare numbers from a year
+        earlier). But there certainly is good news for Perl underneath the
+        monthly noise.
+      </p>
+      <p>
+        I had TIOBE Perl data going back to 2015, so I decided to look at
+        the underlying data (sadly I don't have data going back to the early
+        2000s, when Perl was a top 5 language). The graph below is the result.
+      <p>
+        I'll leave serious statistical analysis to the experts, but a few
+        things leap out at me:
+      </p>
+
+      <ul>
+        <li>From 2015–2017, Perl was usually a top-10 language (peaking at #8).
+          By 2018–2019 it was typically in the mid-teens.</li>
+        <li>From 2018, Perl started a long (and far from consistent) fall
+          reaching a position outside of the top 30 in January 2025</li>
+        <li>From Jan to Aug 2025 it improved every month, reaching #9. Since
+          then it’s hovered around the edge of the top 10
+          (roughly #9–#12).</li>
+      </ul>
+    </section>
+
+    <section class="tabs" aria-label="Content tabs">
+      <div class="tablist" role="tablist" aria-label="View">
+        <button id="tab-chart" class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-chart">
+          Chart
+        </button>
+        <button id="tab-sheet" class="tab" role="tab" aria-selected="false" aria-controls="panel-sheet">
+          Spreadsheet
+        </button>
+      </div>
+
+      <section id="panel-chart" class="tabpanel is-active" role="tabpanel" aria-labelledby="tab-chart">
+        <section class="card">
+          <div class="card__header">
+            <h2 class="card__title">Monthly position</h2>
+            <p class="card__meta" id="chart-meta"></p>
+          </div>
+
+          <div class="chart-wrap" role="img" aria-label="Line chart of Perl’s TIOBE index position over time">
+            <canvas id="tiobeChart"></canvas>
+          </div>
+
+          <details class="notes">
+            <summary>Data notes</summary>
+            <ul>
+              <li>The Y axis is “Position” (1 is best). The chart is inverted so better ranks appear higher.</li>
+              <li>Data source is <code>data/tiobe-perl.csv</code>.</li>
+            </ul>
+          </details>
+        </section>
+      </section>
+
+      <section id="panel-sheet" class="tabpanel" role="tabpanel" aria-labelledby="tab-sheet" hidden>
+        <section class="card">
+          <div class="card__header">
+            <h2 class="card__title">Embedded spreadsheet</h2>
+            <p class="card__meta">This is the published Google Sheet used to maintain the dataset.</p>
+          </div>
+
+          <div class="iframe-wrap">
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ081o4ePeTDvU_tTWmlq8w4gYz59eKcA-4Vw0O6nrp5PZ0JcsKo3kukygb-IJyP4GwTTEoo7N1TYJ2/pubhtml?widget=true&amp;headers=false"></iframe>
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Maintained by <a href="https://davecross.co.uk/">Dave Cross</a> /
+        Built for GitHub Pages /
+        Data maintained in Google Sheets and exported to CSV for the chart.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

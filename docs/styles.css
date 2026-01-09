@@ -1,0 +1,160 @@
+/* Basic, clean “bones” styling. Tweak freely. */
+:root {
+  --bg: #0b0d12;
+  --panel: #121622;
+  --text: #e9ecf1;
+  --muted: #b6bed0;
+  --border: rgba(255, 255, 255, 0.10);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --radius: 14px;
+  --pad: 18px;
+  --max: 1050px;
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font);
+  background: radial-gradient(1200px 800px at 20% 0%, #18213a 0%, var(--bg) 45%);
+  color: var(--text);
+}
+
+.container {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 34px 0 10px;
+}
+
+.site-header h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: 0;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+.tabs {
+  margin: 18px 0 44px;
+}
+
+.tablist {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.tab {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 120ms ease, background 120ms ease, color 120ms ease;
+}
+
+.tab:hover { transform: translateY(-1px); }
+
+.tab.is-active {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.tabpanel { padding: 0; }
+
+.commentary {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+  padding: var(--pad);
+  margin-bottom: 16px;
+}
+
+.commentary h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.commentary p { margin: 0; color: var(--muted); }
+
+.card {
+  background: rgba(18, 22, 34, 0.72);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card__header {
+  padding: var(--pad);
+  border-bottom: 1px solid var(--border);
+}
+
+.card__title {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.card__meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.chart-wrap {
+  padding: 10px 12px 16px;
+}
+
+#tiobeChart {
+  width: 100%;
+  height: 420px;
+}
+
+.notes {
+  padding: 0 var(--pad) var(--pad);
+  color: var(--muted);
+}
+
+.notes code {
+  font-family: var(--mono);
+  font-size: 0.95em;
+}
+
+.iframe-wrap {
+  padding: 12px;
+}
+
+.iframe-wrap iframe {
+  width: 100%;
+  height: 70vh;
+  min-height: 520px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.site-footer {
+  padding: 24px 0 40px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab { transition: none; }
+  .tab:hover { transform: none; }
+}
