@@ -14,10 +14,55 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Perl in the TIOBE Index</title>
+  <meta name="description" content="A simple view of Perl's monthly position in the TIOBE Programming Community Index, showing historical trends and performance data from 2015 onwards." />
+
+  <!-- OpenGraph meta tags -->
+  <meta property="og:title" content="Perl in the TIOBE Index" />
+  <meta property="og:description" content="A simple view of Perl's monthly position in the TIOBE Programming Community Index, showing historical trends and performance data from 2015 onwards." />
+  <meta property="og:url" content="https://tiobe.perlhacks.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Perl in TIOBE" />
+
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Perl in the TIOBE Index" />
+  <meta name="twitter:description" content="A simple view of Perl's monthly position in the TIOBE Programming Community Index, showing historical trends and performance data from 2015 onwards." />
 
   <link rel="stylesheet" href="./styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
   <script src="./app.js" defer></script>
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Perl in TIOBE",
+        "url": "https://tiobe.perlhacks.com/",
+        "description": "A simple view of Perl's monthly position in the TIOBE Programming Community Index",
+        "author": {
+          "@type": "Person",
+          "name": "Dave Cross",
+          "url": "https://davecross.co.uk/"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tiobe.perlhacks.com/",
+        "url": "https://tiobe.perlhacks.com/",
+        "name": "Perl in the TIOBE Index",
+        "description": "A simple view of Perl's monthly position in the TIOBE Programming Community Index, showing historical trends and performance data from 2015 onwards.",
+        "inLanguage": "en-GB",
+        "isPartOf": {
+          "@type": "WebSite",
+          "url": "https://tiobe.perlhacks.com/"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
