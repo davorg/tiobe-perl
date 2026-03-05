@@ -1,0 +1,42 @@
+name: Update TIOBE Data
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # Run daily at 12:00 UTC
+  workflow_dispatch:         # Allow manual triggering
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # Full history is needed so git-log can check for existing commits
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install Python dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Fetch and update TIOBE data
+        run: python bin/update_tiobe.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/tiobe-perl.csv
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update TIOBE data for $(date '+%B %Y')"
+            git push
+          fi
