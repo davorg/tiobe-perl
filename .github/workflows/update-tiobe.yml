@@ -2,7 +2,7 @@ name: Update TIOBE Data
 
 on:
   schedule:
-    - cron: "0 12 * * *"   # Run daily at 12:00 UTC
+    - cron: "0 3 * * *"   # Run daily at 03:00 UTC
   workflow_dispatch:         # Allow manual triggering
 
 jobs:
